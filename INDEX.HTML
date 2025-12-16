@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A+ TIME TABLE PRO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="avatar"><i class="fas fa-user-graduate"></i></div>
+                <h3>Future Professional</h3>
+                <p>Advanced Level</p>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><a href="#"><i class="fas fa-home"></i> Dashboard</a></li>
+                <li onclick="openCalendar()"><a href="#"><i class="fab fa-google"></i> Open Calendar</a></li>
+                <hr style="border-color: rgba(255,255,255,0.1); margin: 10px 0;">
+                <small style="color: #aaa; padding-left: 10px;">Quick Drive Access:</small>
+                <li onclick="openDrive('physics')"><a href="#"><i class="fab fa-google-drive"></i> Physics Drive</a></li>
+                <li onclick="openDrive('chemistry')"><a href="#"><i class="fab fa-google-drive"></i> Chemistry Drive</a></li>
+                <li onclick="openDrive('maths')"><a href="#"><i class="fab fa-google-drive"></i> Maths Drive</a></li>
+                <li onclick="setDriveLinks()" style="margin-top: 20px; cursor: pointer;"><a href="#" style="color: #00d26a;"><i class="fas fa-cog"></i> Set Drive Links</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <header>
+                <h1>A+ SMART DASHBOARD</h1>
+                <div class="datetime-display">
+                    <span id="current-date">Thinking...</span>
+                    <span id="current-time">00:00:00</span>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <div class="card stat-card">
+                    <i class="fas fa-tasks icon"></i>
+                    <div class="info">
+                        <h3>Tasks Done</h3>
+                        <p id="tasks-count">0 / 0</p>
+                    </div>
+                </div>
+                <div class="card stat-card">
+                    <i class="fas fa-clock icon"></i>
+                    <div class="info">
+                        <h3>Study Hours</h3>
+                        <p id="hours-count">0 hrs</p>
+                    </div>
+                </div>
+                <div class="card stat-card stars-card">
+                    <i class="fas fa-star icon"></i>
+                    <div class="info">
+                        <h3>Daily Rating</h3>
+                        <div id="stars-container" class="stars"></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="content-split">
+                <section class="card task-section">
+                    <h2><i class="fas fa-list-check"></i> Today's Tasks & Calendar</h2>
+                    
+                    <div class="input-group">
+                        <select id="subject-select">
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Combined Maths">Comb. Maths</option>
+                        </select>
+                        <input type="text" id="task-input" placeholder="Task details...">
+                        <input type="number" id="time-input" placeholder="Hrs" min="1" max="10" style="width: 70px;">
+                        <button id="add-btn"><i class="fas fa-plus"></i> Add</button>
+                    </div>
+
+                    <ul id="task-list" class="task-list">
+                        </ul>
+                </section>
+
+                <section class="card chart-section">
+                    <h2><i class="fas fa-chart-line"></i> Subject Progress Tracker</h2>
+                    <div class="chart-input">
+                        <input type="text" id="exam-name" placeholder="Exam (e.g. Term 1)">
+                        <select id="mark-subject">
+                            <option value="physics">Physics</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="maths">Comb. Maths</option>
+                        </select>
+                        <input type="number" id="exam-mark" placeholder="Marks" style="width: 80px;">
+                        <button id="add-mark-btn">Add</button>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
